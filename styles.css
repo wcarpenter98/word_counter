@@ -1,0 +1,50 @@
+h2{
+  font-family: 'Sono', sans-serif;
+}
+
+h4{
+  font-family: 'Nunito', sans-serif;
+}
+
+#gridWrap{
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-gap: 2%;
+  height: 100%;
+  grid-auto-rows: minmax(10em, auto);
+}
+
+#topInfoBox{
+  display: flex;
+}
+
+.statTextBox{
+  border:1px solid;
+  height: 10%;
+  max-height: 10%;
+  display: block;
+}
+
+#theStats{
+  width: 100%;
+  max-height: 20em;
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-align:justify;
+}
+
+textarea {
+  overflow-y: scroll;
+  height: 100%;
+  width: 100%;
+  min-height: 25em;
+  resize: none; /* Remove this if you want the user to resize the textarea */
+  font-family: 'Nunito', sans-serif;
+}
+
+body{
+  background: #EAF6FF;
+}
+.pageElement{
+  word-break: break-all;
+}

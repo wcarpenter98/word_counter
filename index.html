@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito&family=Sono:wght@700&display=swap" rel="stylesheet">
+
+  <title>Word Counter</title>
+</head>
+<body>
+  <div id="gridWrap">
+    <div class="pageElement" id="topInfoBox">
+      <h2>Word count: <span id="wordCount">0</span> | Character count: <span id="characterCount">0</span>  | Significant Character Count <span id="sigCharacterCount">0</span></h2>
+    </div>
+    <div class="pageElement" id="textBox">
+      <textarea id="textArea" oninput="myFunction()""></textarea>
+    </div>
+    <div class="pageElement" id="statsBox">
+      <h2>Stat Box</h2>
+      <h4 id="theStats"></h4>
+    </div>
+  <script src="app.js"></script>
+
+</body>
+</html>
