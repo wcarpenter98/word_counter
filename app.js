@@ -1,12 +1,24 @@
 function myFunction() {
   var textAreaText = document.getElementById('textArea').value;
   var arrayOfWords = textAreaText.split(" ");
-  var wordSet = new Set(arrayOfWords);
+
+  //remove white spaces from array
+  let arrayOfWordsNoSpaces = [];
+  for(var i=0; i<arrayOfWords.length; i++){
+    if(arrayOfWords[i] != " " && arrayOfWords[i] != ""){
+      arrayOfWordsNoSpaces.push(arrayOfWords[i]);
+      console.log("hi");
+    }
+  }
+
+  var wordSet = new Set(arrayOfWordsNoSpaces);
   var arrayOfWordsNoRepeats = Array.from(wordSet);
-  getWordCount(arrayOfWords);
-  getCharacterCount(arrayOfWords);
-  getStats(arrayOfWords, arrayOfWordsNoRepeats);
-  return arrayOfWords;
+
+
+  getWordCount(arrayOfWordsNoSpaces);
+  getCharacterCount(arrayOfWordsNoSpaces);
+  getStats(arrayOfWordsNoSpaces, arrayOfWordsNoRepeats);
+  return arrayOfWordsNoSpaces;
 }
 
 function getWordCount(wordArray){
@@ -30,8 +42,7 @@ function getCharacterCount(wordArray){
     }
   }
   //TODO: ABOVE COULD BE USED FOR SIGNIFICANT CHARACTERS AKA CHARACTERS WITHOUT SPACES.
-  document.getElementById("sigCharacterCount").innerHTML = totalCharacters;
-  document.getElementById("characterCount").innerHTML = String(document.getElementById('textArea').value.length);
+  document.getElementById("characterCount").innerHTML = totalCharacters;
 }
 
 function getStats(totalWordArray, totalWordArrayNoRepeats){
@@ -71,7 +82,7 @@ function getStats(totalWordArray, totalWordArrayNoRepeats){
     else{
       var wordList = [];
       //TODO: CHECK WHERE THESE EMPTY KEYS ARE COMING FROM, THIS IS A PATCHY FIX BELOW WITH THE IF STATEMENT
-      if(key != ''){
+      if(key != '' && key != " "){
         wordList.push(key);
         frequencyMap.set(value, wordList);
       }
@@ -103,13 +114,13 @@ function getStats(totalWordArray, totalWordArrayNoRepeats){
         //derive stats for the word
         //currentWord (7 occurences) (10 percent of total words)
         var percentage = i/totalWordArray.length * 100
+        console.log(totalWordArray.length);
+        console.log(totalWordArray);
         currentWord = currentWord + " (" + i + " occurences) (" + percentage.toFixed(3) + "% of total words)";
         detailedStatsList.push(currentWord)
       }
     }
   }
-
-
 
 
  // var statsTextBox = document.getElementById("statsText");
