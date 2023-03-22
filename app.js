@@ -24,10 +24,6 @@ function myFunction() {
   return arrayOfWordsNoSpaces;
 }
 
-String.prototype.replaceAt = function(index, replacement) {
-  return this.substring(0, index) + replacement + this.substring(index + replacement.length);
-}
-
 
 function getWordCount(wordArray){
   //count all of the words except spaces
