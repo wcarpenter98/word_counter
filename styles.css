@@ -16,6 +16,7 @@ h4{
 
 #topInfoBox{
   display: flex;
+  background: #eef8ff;
 }
 
 .statTextBox{
@@ -48,3 +49,12 @@ body{
 .pageElement{
   word-break: break-all;
 }
+
+#statsBox{
+  margin-top: 4%;
+}
+#searchBox{
+  margin-top: 4%;
+}
+
+
