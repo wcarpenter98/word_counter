@@ -1,5 +1,8 @@
 function myFunction() {
   var textAreaText = document.getElementById('textArea').value;
+  //replace newlines with spaces when processing
+  textAreaText = textAreaText.replace(/\n/g, " ");
+
   var arrayOfWords = textAreaText.split(" ");
 
   //remove white spaces from array
@@ -20,6 +23,11 @@ function myFunction() {
   getStats(arrayOfWordsNoSpaces, arrayOfWordsNoRepeats);
   return arrayOfWordsNoSpaces;
 }
+
+String.prototype.replaceAt = function(index, replacement) {
+  return this.substring(0, index) + replacement + this.substring(index + replacement.length);
+}
+
 
 function getWordCount(wordArray){
   //count all of the words except spaces
