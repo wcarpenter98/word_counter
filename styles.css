@@ -56,6 +56,23 @@ body{
 #statsBox{
   margin-top: 8%;
 }
+
+@media (max-width: 500px) {
+  #statsBox{
+    margin-top: 10%;
+  }
+}
+@media (max-width: 330px) {
+  #statsBox{
+    margin-top: 12%;
+  }
+}
+@media (max-width: 270px) {
+  #statsBox{
+    margin-top: 17%;
+  }
+}
+
 #searchBox{
   margin-top: 6%;
 }
