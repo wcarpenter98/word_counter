@@ -15,14 +15,20 @@
 <body>
   <div id="gridWrap">
     <div class="pageElement" id="topInfoBox">
-      <h2>Word count: <span id="wordCount">0</span> | Character count: <span id="characterCount">0</span></h2>
+      <h2 class="topText">Word count: <span id="wordCount">0</span> | Character count: <span id="characterCount">0</span></h2>
     </div>
     <div class="pageElement" id="textBox">
-      <textarea id="textArea" oninput="myFunction()""></textarea>
+      <textarea id="textArea"></textarea>
+      <button type="button" onclick="myFunction()" class="button-28">Calculate</button>
     </div>
     <div class="pageElement" id="statsBox">
       <h2>Stat Box</h2>
       <h4 id="theStats"></h4>
+    </div>
+    <div class="pageElement" id="searchBox">
+      <h2>Search for Word</h2>
+      <input type="text" id="searchElement" oninput="getSearch()">
+      <h4 id="searchResults"></h4>
     </div>
 
   <script src="app.js"></script>

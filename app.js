@@ -17,10 +17,10 @@ function myFunction() {
   var wordSet = new Set(arrayOfWordsNoSpaces);
   var arrayOfWordsNoRepeats = Array.from(wordSet);
 
-
   getWordCount(arrayOfWordsNoSpaces);
   getCharacterCount(arrayOfWordsNoSpaces);
   getStats(arrayOfWordsNoSpaces, arrayOfWordsNoRepeats);
+  getSearch();
   return arrayOfWordsNoSpaces;
 }
 
@@ -85,7 +85,6 @@ function getStats(totalWordArray, totalWordArrayNoRepeats){
     }
     else{
       var wordList = [];
-      //TODO: CHECK WHERE THESE EMPTY KEYS ARE COMING FROM, THIS IS A PATCHY FIX BELOW WITH THE IF STATEMENT
       if(key != '' && key != " "){
         wordList.push(key);
         frequencyMap.set(value, wordList);
@@ -121,7 +120,7 @@ function getStats(totalWordArray, totalWordArrayNoRepeats){
         console.log(totalWordArray.length);
         console.log(totalWordArray);
         currentWord = currentWord + " (" + i + " occurences) (" + percentage.toFixed(3) + "% of total words)";
-        detailedStatsList.push(currentWord)
+        detailedStatsList.push(currentWord);
       }
     }
   }
@@ -132,13 +131,12 @@ function getStats(totalWordArray, totalWordArrayNoRepeats){
   //create a string to put inside of the stats text box
   var statsTextString = "";
   for(var i = 0; i < detailedStatsList.length; i++){
-    statsTextString += detailedStatsList[i] + "\n" + "\n"
+    statsTextString += detailedStatsList[i] + "\n" + "\n";
   }
 
-
-  //TODO: do this with a new element below. 
   document.getElementById("theStats").innerText = statsTextString;
-  console.log(frequencyMap)
+  console.log(frequencyMap);
+
 
 }
 
@@ -152,3 +150,32 @@ function doesWordEndInSpecialCharacter(word){
   }
 }
 
+
+
+function getSearch(){
+    //calculate the search after we have derived the stats list above
+    let keyword = document.querySelector("#searchElement").value;
+    let entireStatDetails = document.getElementById("theStats").innerText;
+
+    let entireStatsArray = entireStatDetails.split(/\n/g);
+    let searchKeyword = keyword.trim();
+    console.log("---------------------------------")
+    console.log(entireStatDetails);
+    console.log(entireStatsArray);
+    //find the entry that relates to the keyword requested
+    for(let i = 0; i < entireStatsArray.length; i++){
+      if(entireStatsArray[i].length != 0){
+        //split the words up to compare them
+        let statsSplit = entireStatsArray[i].split(" ");
+        let currentWord = statsSplit[0].trim();
+        if(currentWord == searchKeyword){
+          document.getElementById("searchResults").innerText = entireStatsArray[i];
+          break;
+        }
+        else{
+          //did not match a keyword, therefore display empty string
+          document.getElementById("searchResults").innerText = "";
+        }
+      }
+    }
+}
