@@ -18,8 +18,8 @@
       <h2 class="topText">Word count: <span id="wordCount">0</span> | Character count: <span id="characterCount">0</span></h2>
     </div>
     <div class="pageElement" id="textBox">
-      <textarea id="textArea"></textarea>
-      <button type="button" onclick="myFunction()" class="button-28">Calculate</button>
+      <textarea id="textArea" oninput="getWordCharCount()"></textarea>
+      <button type="button" onclick="myFunction()" class="button-28">Calculate Stats</button>
     </div>
     <div class="pageElement" id="statsBox">
       <h2>Stat Box</h2>

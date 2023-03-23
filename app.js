@@ -25,6 +25,30 @@ function myFunction() {
 }
 
 
+function getWordCharCount(){
+  var textAreaText = document.getElementById('textArea').value;
+  //replace newlines with spaces when processing
+  textAreaText = textAreaText.replace(/\n/g, " ");
+
+  var arrayOfWords = textAreaText.split(" ");
+
+  //remove white spaces from array
+  let arrayOfWordsNoSpaces = [];
+  for(var i=0; i<arrayOfWords.length; i++){
+    if(arrayOfWords[i] != " " && arrayOfWords[i] != ""){
+      arrayOfWordsNoSpaces.push(arrayOfWords[i]);
+      console.log("hi");
+    }
+  }
+
+  var wordSet = new Set(arrayOfWordsNoSpaces);
+  var arrayOfWordsNoRepeats = Array.from(wordSet);
+
+  getWordCount(arrayOfWordsNoSpaces);
+  getCharacterCount(arrayOfWordsNoSpaces);
+}
+
+
 function getWordCount(wordArray){
   //count all of the words except spaces
   var totalWords = 0;
