@@ -143,7 +143,7 @@ function getStats(totalWordArray, totalWordArrayNoRepeats){
         var percentage = i/totalWordArray.length * 100
         console.log(totalWordArray.length);
         console.log(totalWordArray);
-        currentWord = currentWord + " (" + i + " occurences) (" + percentage.toFixed(3) + "% of total words)";
+        currentWord = currentWord + " (" + i + " occurrences) (" + percentage.toFixed(3) + "% of total words)";
         detailedStatsList.push(currentWord);
       }
     }
