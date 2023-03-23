@@ -17,8 +17,6 @@ function myFunction() {
   var wordSet = new Set(arrayOfWordsNoSpaces);
   var arrayOfWordsNoRepeats = Array.from(wordSet);
 
-  getWordCount(arrayOfWordsNoSpaces);
-  getCharacterCount(arrayOfWordsNoSpaces);
   getStats(arrayOfWordsNoSpaces, arrayOfWordsNoRepeats);
   getSearch();
   return arrayOfWordsNoSpaces;
@@ -27,50 +25,18 @@ function myFunction() {
 
 function getWordCharCount(){
   var textAreaText = document.getElementById('textArea').value;
-  //replace newlines with spaces when processing
-  textAreaText = textAreaText.replace(/\n/g, " ");
-
-  var arrayOfWords = textAreaText.split(" ");
-
-  //remove white spaces from array
-  let arrayOfWordsNoSpaces = [];
-  for(var i=0; i<arrayOfWords.length; i++){
-    if(arrayOfWords[i] != " " && arrayOfWords[i] != ""){
-      arrayOfWordsNoSpaces.push(arrayOfWords[i]);
-      console.log("hi");
-    }
-  }
-
-  var wordSet = new Set(arrayOfWordsNoSpaces);
-  var arrayOfWordsNoRepeats = Array.from(wordSet);
-
-  getWordCount(arrayOfWordsNoSpaces);
-  getCharacterCount(arrayOfWordsNoSpaces);
+  getWordCount(textAreaText);
+  getCharacterCount(textAreaText);
 }
 
 
 function getWordCount(wordArray){
-  //count all of the words except spaces
-  var totalWords = 0;
-  for(var i = 0; i < wordArray.length; i++){
-    if(wordArray[i] != " " && wordArray[i] != ''){
-      totalWords += 1;
-    }
-  }
-  document.getElementById("wordCount").innerHTML = String(totalWords);
+  document.getElementById("wordCount").innerHTML = wordArray.match(/\S+/g).length;
 }
 
 function getCharacterCount(wordArray){
-  //count all of the characters that arent empty stings or spaces or periods.
-  var totalCharacters = 0;
-  for(var i = 0; i < wordArray.length; i++){
-    if(wordArray[i] != " " && wordArray[i] != ''){
-      //now count all of the characters of the current word
-      totalCharacters += wordArray[i].length;
-    }
-  }
-  //TODO: ABOVE COULD BE USED FOR SIGNIFICANT CHARACTERS AKA CHARACTERS WITHOUT SPACES.
-  document.getElementById("characterCount").innerHTML = totalCharacters;
+  //document.getElementById("characterCount").innerHTML = wordArray.match(/[^\s]/g).length;
+  document.getElementById("characterCount").innerHTML = wordArray.match(/./g).length;
 }
 
 function getStats(totalWordArray, totalWordArrayNoRepeats){
